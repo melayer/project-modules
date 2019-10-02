@@ -1,0 +1,24 @@
+<div>
+  <table>
+    <tr>
+      <th>Sr</th>
+      <th>Head</th>
+      <th>Approved Amount</th>
+      <th>Claimed Amount</th>
+      <th>Event Image</th>
+    </tr>
+    <tr *ngFor="let claim of claims; let sr = index;">
+      <td>{{sr+1}}</td>
+      <td>{{claim.head}}</td>
+      <td>{{claim.approvedAmount}}</td>
+      <td><input type="text" type="number" [(ngModel)]="claim.claimAmount" name="claimAmount"></td>
+      <td>
+        <img width="50px" height="50px" (click)="onClaimClick(claim)" [src]="claim.image">
+        <label (click)="clearImage(claim)"><u>Remove Image</u></label>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <input type="button" value="Print Data" (click)="printData()">
+</div>
